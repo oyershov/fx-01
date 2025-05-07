@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { Header } from '@fx-01/ui';
+
 import NxWelcome from './nx-welcome';
 
 const StyledApp = styled.div`
@@ -8,6 +10,7 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
+      <Header />
       <NxWelcome title="fx" />
     </StyledApp>
   );
