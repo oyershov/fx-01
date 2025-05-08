@@ -5,7 +5,7 @@
  **/
 const moduleFederationConfig = {
   name: 'app-shell',
-  remotes: [],
+  remotes: ['fx', 'rates'],
 };
 
 module.exports = moduleFederationConfig;

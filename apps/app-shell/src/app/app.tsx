@@ -1,17 +1,18 @@
 import * as React from 'react';
-import NxWelcome from './nx-welcome';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import { Header } from '@fx-01/ui';
+
+const FX = React.lazy(() => import('fx/Module'));
+const Rates = React.lazy(() => import('rates/Module'));
 
 export function App() {
   return (
     <React.Suspense fallback={null}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-      </ul>
+      <Header />
       <Routes>
-        <Route path="/" element={<NxWelcome title="app-shell" />} />
+        <Route path="/" element={<FX />} />
+        <Route path="/dashboard" element={<FX />} />
+        <Route path="/portfolio" element={<Rates />} />
       </Routes>
     </React.Suspense>
   );

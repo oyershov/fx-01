@@ -54,7 +54,7 @@
       "options": {
         "buildTarget": "app-shell:build",
         "hmr": true,
-        "port": 4202
+        "port": 4200
       },
       "configurations": {
         "development": {
@@ -86,7 +86,7 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "app-shell:build",
-        "port": 4202
+        "port": 4200
       },
       "configurations": {
         "development": {

@@ -19,7 +19,7 @@
         "assets": ["apps/fx/src/favicon.ico", "apps/fx/src/assets"],
         "styles": [],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "apps/rates/webpack.config.js"
       },
       "configurations": {
         "development": {
@@ -45,12 +45,12 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/webpack:dev-server",
+      "executor": "@nrwl/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "fx:build",
         "hmr": true,
-        "port": 4200
+        "port": 4201
       },
       "configurations": {
         "development": {
@@ -60,6 +60,14 @@
           "buildTarget": "fx:build:production",
           "hmr": false
         }
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "fx:build",
+        "port": 4201
       }
     },
     "lint": {
