@@ -13,13 +13,13 @@
         "outputPath": "dist/apps/store",
         "index": "apps/store/src/index.html",
         "baseHref": "/",
-        "main": "apps/store/src/main.tsx",
+        "main": "apps/store/src/main.ts",
         "polyfills": "apps/store/src/polyfills.ts",
         "tsConfig": "apps/store/tsconfig.app.json",
         "assets": ["apps/store/src/favicon.ico", "apps/store/src/assets"],
         "styles": [],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "apps/store/webpack.config.js"
       },
       "configurations": {
         "development": {
@@ -40,16 +40,18 @@
           "sourceMap": false,
           "namedChunks": false,
           "extractLicenses": true,
-          "vendorChunk": false
+          "vendorChunk": false,
+          "webpackConfig": "apps/store/webpack.config.prod.js"
         }
       }
     },
     "serve": {
-      "executor": "@nrwl/webpack:dev-server",
+      "executor": "@nrwl/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "store:build",
-        "hmr": true
+        "hmr": true,
+        "port": 4203
       },
       "configurations": {
         "development": {
@@ -74,6 +76,22 @@
       "options": {
         "jestConfig": "apps/store/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "store:build",
+        "port": 4204
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "store:build:development"
+        },
+        "production": {
+          "buildTarget": "store:build:production"
+        }
       }
     }
   },

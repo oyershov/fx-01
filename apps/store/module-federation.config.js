@@ -4,8 +4,10 @@
  * @type {import('@nrwl/react/module-federation').ModuleFederationConfig}
  **/
 const moduleFederationConfig = {
-  name: 'app-shell',
-  remotes: ['fx', 'rates', 'store'],
+  name: 'store',
+  exposes: {
+    './Module': './src/remote-entry.ts',
+  },
 };
 
 module.exports = moduleFederationConfig;
