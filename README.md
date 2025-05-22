@@ -1,84 +1,66 @@
-# Turborepo starter
+# FX 01
 
-This Turborepo starter is maintained by the Turborepo core team.
+FX 01 is a modular, domain-driven trading platform designed to demonstrate modern web architecture principles. It provides real-time financial tools and features tailored for multiple market domains, showcasing the power of micro-frontend architecture and scalable development practices.
 
-## Using this example
+## ✨ Key Features
 
-Run the following command:
+### FX Module
+- **Quotes**: Real-time live quotes for financial instruments.
+- **Instrument Selector**: User selects a financial instrument (e.g., "EUR/USD" or "10Y UST"). Publishes instrument-selected event.
+- **Order Entry Panel**: Streamlined interface for placing and managing trades.
 
-```sh
-npx create-turbo@latest
+### Rates Module
+- **Interactive Chart**: Dynamic visualization of market trends and data.
+- **Spread Matrix Display**: Comprehensive view of spreads across various instruments.
+- **Trade Blotter**: Displays trades history.
+
+## 🏗️ Architecture Overview
+
+- **Micro-Frontend (MFE) Architecture**: Each domain (e.g., FX, Rates) is developed, deployed, and maintained independently, ensuring scalability and flexibility.
+- **Module Federation**: Enables runtime loading of remote modules, reducing build times and improving performance.
+- **Nx Monorepo**: Centralized repository for consistent tooling, dependency management, and streamlined orchestration.
+- **Domain Isolation**: Each feature area is encapsulated to enhance maintainability, scalability, and team autonomy.
+- **Global State Management**: (Planned) A unified approach to managing shared state across modules.
+
+## 🚀 Getting Started
+
+### Development
+
+To start the platform locally, run the following command:
+
+```bash
+pnpm turbo run dev --parallel
 ```
 
-## What's inside?
+This command starts the **host** (host application) on port `3000` and dynamically serves the following remote applications:
 
-This Turborepo includes the following packages/apps:
+  - FX Module: Available on port `3001`
+  - Rates Module: Available on port `3002`
 
-### Apps and Packages
+Prerequisites
+  **Node.js**: Ensure you have Node.js installed (v16 or higher recommended).
+  **pnpm**: Install pnpm as the package manager for dependency management.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+Installation
+1. Clone the repository:
+```bash
+git clone <repository-url>
 ```
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
+2. Navigate to the project directory:
+```bash
+cd fx-01
 ```
 
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+3. Install dependencies:
+```bash
+pnpm install
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+Running the Application
+1. Start the host application and remote modules:
+```bash
+pnpm turbo run dev --parallel
 ```
 
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+2. Open your browser and navigate to http://localhost:3000 to access the platform.
