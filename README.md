@@ -18,7 +18,7 @@ FX 01 is a modular, domain-driven trading platform designed to demonstrate moder
 
 - **Micro-Frontend (MFE) Architecture**: Each domain (e.g., FX, Rates) is developed, deployed, and maintained independently, ensuring scalability and flexibility.
 - **Module Federation**: Enables runtime loading of remote modules, reducing build times and improving performance.
-- **Nx Monorepo**: Centralized repository for consistent tooling, dependency management, and streamlined orchestration.
+- **Turborepo Monorepo**: Centralized repository for consistent tooling, dependency management, and streamlined orchestration.
 - **Domain Isolation**: Each feature area is encapsulated to enhance maintainability, scalability, and team autonomy.
 - **Global State Management**: (Planned) A unified approach to managing shared state across modules.
 
