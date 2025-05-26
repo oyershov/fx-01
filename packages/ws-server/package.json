@@ -1,5 +1,5 @@
 {
-  "name": "@fx-01/ws-server-mock",
+  "name": "@fx-01/ws-server",
   "version": "0.0.0",
   "private": true,
   "type": "module",

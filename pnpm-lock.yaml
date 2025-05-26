@@ -241,7 +241,7 @@ importers:
         specifier: 5.8.2
         version: 5.8.2
 
-  packages/ws-server-mock:
+  packages/ws-server:
     dependencies:
       nanoid:
         specifier: ^5.1.5
