@@ -15,7 +15,7 @@ export default defineConfig({
       exposes: {
         './Widget': './src/Widget.tsx'
       },
-      shared: ['react', 'react-dom']
+      shared: ['react', 'react-dom'],
     })
   ],
   server: {
