@@ -1,0 +1,20 @@
+{
+  "name": "@fx-01/shared",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@fx-01/eslint-config": "workspace:*",
+    "@fx-01/typescript-config": "workspace:*",
+    "eslint": "^9.27.0",
+    "typescript": "5.8.2"
+  },
+  "dependencies": {
+    "zod": "^3.25.28"
+  }
+}
