@@ -1,0 +1,24 @@
+{
+  "name": "@repo/ws-server-mock",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.15.21",
+    "@types/ws": "^8.18.1",
+    "eslint": "^9.27.0",
+    "tsx": "^4.19.4",
+    "typescript": "5.8.2"
+  },
+  "dependencies": {
+    "nanoid": "^5.1.5",
+    "ws": "^8.18.2"
+  }
+}
