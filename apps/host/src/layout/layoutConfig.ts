@@ -7,6 +7,7 @@ export const defaultLayout: IJsonModel = {
   global: {
     splitterSize: 4,
     tabEnableRenderOnDemand: true, // perf: keep off‑screen widgets unmounted
+    tabSetEnableSingleTabStretch: true,
   },
   layout: {
     type: "row",
@@ -15,14 +16,22 @@ export const defaultLayout: IJsonModel = {
       {
         type: "tabset",
         weight: 50,
-        enableTabStrip: false,
-        children: [{ component: "FxWidget", name: "FX Widget" }],
+        children: [{
+          component: "FxWidget",
+          name: "FX Widget",
+          enableClose: false,
+          enablePopout: true
+        }],
       },
       {
         type: "tabset",
         weight: 50,
-        enableTabStrip: false,
-        children: [{ component: "RatesWidget", name: "Rates Widget" }],
+        children: [{
+          component: "RatesWidget",
+          name: "Rates Widget",
+          enableClose: false,
+          enablePopout: true
+        }],
       },
     ],
   },
