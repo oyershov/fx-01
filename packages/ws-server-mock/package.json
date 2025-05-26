@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ws-server-mock",
+  "name": "@fx-01/ws-server-mock",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,8 +9,8 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@fx-01/eslint-config": "workspace:*",
+    "@fx-01/typescript-config": "workspace:*",
     "@types/node": "^22.15.21",
     "@types/ws": "^8.18.1",
     "eslint": "^9.27.0",

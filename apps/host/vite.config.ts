@@ -14,6 +14,9 @@ export default defineConfig({
       shared: ['react', 'react-dom']
     })
   ],
+  build: {
+    target: 'esnext',
+  },
   server: {
     port: 3000
   }
