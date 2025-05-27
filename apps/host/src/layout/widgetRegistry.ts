@@ -6,7 +6,7 @@ import React from 'react';
  * touching core layout code.
  */
 export const widgetRegistry = {
-  FxWidget:    React.lazy(() => import('fx/Widget')),
+  FxQuotesPanel: React.lazy(() => import('fx/QuotesPanel')),
   RatesWidget: React.lazy(() => import('rates/Widget')),
 } as const;
 

@@ -1,2 +1,2 @@
-declare module 'fx/Widget'
+declare module 'fx/QuotesPanel'
 declare module 'rates/Widget'

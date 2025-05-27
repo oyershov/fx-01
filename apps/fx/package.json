@@ -11,6 +11,8 @@
     "preview": "vite preview --port 3001"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@fx-01/ws-client": "workspace:*",
     "@fx-01/shared": "workspace:*",
     "react": "^19.1.0",

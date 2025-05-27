@@ -17,8 +17,8 @@ export const defaultLayout: IJsonModel = {
         type: "tabset",
         weight: 50,
         children: [{
-          component: "FxWidget",
-          name: "FX Widget",
+          component: "FxQuotesPanel",
+          name: "FX Quotes Panel",
           enableClose: false,
           enablePopout: true
         }],

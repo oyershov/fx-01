@@ -5,7 +5,7 @@ FX 01 is a modular, domain-driven trading platform designed to demonstrate moder
 ## ✨ Key Features
 
 ### FX Module
-- **Quotes**: Real-time live quotes for financial instruments.
+- **Quotes Panel**: Real-time live quotes panel for financial instruments.
 - **Instrument Selector**: User selects a financial instrument (e.g., "EUR/USD" or "10Y UST"). Publishes instrument-selected event.
 - **Order Entry Panel**: Streamlined interface for placing and managing trades.
 

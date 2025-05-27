@@ -11,7 +11,12 @@ export default defineConfig({
         fx: 'http://localhost:3001/assets/remoteEntry.js',
         rates: 'http://localhost:3002/assets/remoteEntry.js'
       },
-      shared: ['react', 'react-dom']
+      shared: [
+        'react',
+        'react-dom',
+        '@emotion/react',
+        '@emotion/styled'
+      ]
     })
   ],
   build: {

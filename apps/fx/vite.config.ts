@@ -13,9 +13,14 @@ export default defineConfig({
       name: 'fx',
       filename: 'remoteEntry.js',
       exposes: {
-        './Widget': './src/Widget.tsx'
+      './QuotesPanel': './src/features/quotes-panel/QuotesWidget.tsx',
       },
-      shared: ['react', 'react-dom'],
+      shared: [
+        'react',
+        'react-dom',
+        '@emotion/react',
+        '@emotion/styled'
+      ],
     })
   ],
   server: {
