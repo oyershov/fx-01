@@ -69,6 +69,7 @@ Shared code and utilities are housed here to promote reusability and maintain co
 git clone <repository-url>
 cd fx-01
 pnpm install
+pnpm build
 ```
 
 ### Run All Apps
