@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { quotesSocket } from "@fx-01/ws-client";
 import type { QuoteMsg } from "@fx-01/shared/protocol";
+import { quotesSocket } from "@fx-01/ws-client";
 
 /**
  * Live quote for a single instrument.
