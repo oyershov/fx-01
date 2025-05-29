@@ -1,16 +1,35 @@
 # FX 01
 
-**FX 01** is a modular, real-time trading platform showcasing modern web architecture principles. Built with **React**, **TypeScript** and **Module Federation**, it demonstrates scalable development practices through micro-frontend architecture and domain-driven design.
+**FX 01** is a practical example of how to structure a real-time, modular web application using modern tools like **React**, **TypeScript**, **Vite**, and **Module Federation**.
 
-## ✨ Monorepo Structure
+The project happens to simulate a trading platform, but the architecture and patterns here are general — applicable to any complex UI where multiple teams or domains need to work independently, and where live data is involved.
+
+This repo is meant to be useful as a reference, not a framework or starter kit.
+
+## What This Project Tries to Show
+- How to build **micro-frontends** that are independently developed and deployed.
+- How to use **Module Federation** to load parts of your app at runtime.
+- How to set up **WebSocket communication** for real-time updates.
+- How to organize shared logic and types across apps in a **monorepo**.
+- How to use a **publish/subscribe pattern** to coordinate loosely coupled components.
+
+## Tech Stack
+- **React + TypeScript**: for all frontends.
+- **Vite**: fast local dev and build.
+- **Webpack Module Federation**: for runtime integration between apps.
+- **Turborepo**: to manage builds across the monorepo.
+- **WebSocket**: for live updates.
+- **Custom Event Bus**: for loosely coupled global state management.
+
+## 📁 Monorepo Structure
 The repository is organized into two primary directories: `apps/` and `packages/`.
 
 ### 🧩 `apps/` — Micro-frontend Applications
 
 Each subdirectory under `apps/` represents an independently deployable application, aligning with specific business domains or hosting responsibilities.
 
-- `host/`: The main shell application responsible for layout, routing, and orchestrating micro-frontends. It dynamically loads remote modules from other apps.
-- `fx/`: Focused on Foreign Exchange (FX) trading functionalities. Exposes components like:
+- `host/`: Main container application. Handles layout and routing, loads other apps via module federation.
+- `fx/`: Foreign exchange domain. Contains:
   - **Quotes Panel**: Displays real-time FX quotes.
   - **Instrument Selector**: Allows users to select financial instruments (e.g., "EUR/USD").
   - **Order Entry Panel**: Interface for placing and managing FX trades.
@@ -19,63 +38,51 @@ Each subdirectory under `apps/` represents an independently deployable applicati
   - **Spread Matrix Display**: Shows spreads across various instruments.
   - **Trade Blotter**: Displays trade history.
 
+> While this project uses finance as the domain, these apps could represent any product areas — analytics, logistics, health data, etc.
+
 ---
 
 ### 🧱 `packages/` — Shared Libraries and Utilities
 
 Shared code and utilities are housed here to promote reusability and maintain consistency across applications.
 
-- `shared/`: Acts as the "shared kernel" containing:
-  - `protocol.ts`: Canonical definitions of WebSocket messages exchanged between front-ends and back-end services.
-- `ws-client/`: A singleton wrapper that establishes a single live WebSocket connection. It validates frames using `@fx-01/shared/protocol` and handles automatic reconnections.
-- `ws-server/`: The WebSocket server implementation that broadcasts real-time data to connected clients.
-- `event/`: Provides a publish-subscribe mechanism for custom events, facilitating communication between applications. For instance, when the Instrument Selector changes the selected pair, the Chart component can react accordingly. Consider it like a global state management.
+- `shared/`: Type definitions and protocols shared across apps and services.
+- `ws-client/`: WebSocket client abstraction - shared singleton connection, auto-reconnect, validation using shared protocol.
+- `ws-server/`: Simulated WebSocket server for broadcasting real-time messages.
+- `event/`: Simple pub/sub utility for decoupled communication between components (e.g., one app can react when another changes a selected item).
 
-
-## 🏗️ Architecture Overview
-
-- **Micro-Frontend (MFE) Architecture**: Each domain (e.g., FX, Rates) is developed, deployed, and maintained independently, ensuring scalability and flexibility.
-- **Module Federation**: Enables runtime loading of remote modules, reducing build times and improving performance.
-- **Turborepo Monorepo**: Centralized repository for consistent tooling, dependency management, and streamlined orchestration.
-- **Domain Isolation**: Each feature area is encapsulated to enhance maintainability, scalability, and team autonomy.
-- **Real-Time Communication**: WebSocket integration provides live updates across the platform.
-- **Global State Management**: PubSub mechanism has been used to communicate across micro-frontends.
-
+## How It Works
+- **Each app is built independently** using Vite + React + TypeScript.
+- **Host loads remote apps** dynamically at runtime using Webpack Module Federation.
+- **Apps communicate via events** (publish/subscribe) or shared global state.
+- **WebSocket server** broadcasts simulated data. Clients listen and react in real time.
+- Everything is wired together in a **monorepo with Turborepo** to manage builds and scripts efficiently.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-  **Node.js**: Ensure you have Node.js installed (v16 or higher recommended).
-  **pnpm**: Install pnpm as the package manager for dependency management.
+- Node.js v16+
+- pnpm (used for workspace-aware installs and scripts)
 
-### Installation
-1. Clone the repository:
+### Setup
 ```bash
 git clone <repository-url>
-```
-
-2. Navigate to the project directory:
-```bash
 cd fx-01
-```
-
-3. Install dependencies:
-```bash
 pnpm install
 ```
 
-### Running the Application
-
-1. Start all applications in parallel:
+### Run All Apps
 
 ```bash
 pnpm turbo run dev --parallel
 ```
 
-This command launches the following applications:
+Apps will be available at:
 - **Host**: http://localhost:3000
 - **FX**: http://localhost:3001
 - **Rates**: http://localhost:3002
 - **WS server**: http://localhost:4000
 
-2. Open your browser and navigate to http://localhost:3000 to access the platform.
+Open http://localhost:3000 in your browser to see the full platform.
+
+## Enjoy!
