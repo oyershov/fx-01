@@ -32,11 +32,11 @@ Each subdirectory under `apps/` represents an independently deployable applicati
 - `fx/`: Foreign exchange domain. Contains:
   - **Quotes Panel**: Displays real-time FX quotes.
   - **Instrument Selector**: Allows users to select financial instruments (e.g., "EUR/USD").
-  - **Order Entry Panel**: Interface for placing and managing FX trades.
+  - **Order Entry Panel**: Interface for placing and managing FX trades. (not available)
 - `rates/`: Dedicated to Rates trading features. Exposes components such as:
   - **Interactive Chart**: Visualizes market trends and data.
-  - **Spread Matrix Display**: Shows spreads across various instruments.
-  - **Trade Blotter**: Displays trade history.
+  - **Spread Matrix Display**: Shows spreads across various instruments. (not available)
+  - **Trade Blotter**: Displays trade history. (not available)
 
 > While this project uses finance as the domain, these apps could represent any product areas — analytics, logistics, health data, etc.
 
@@ -85,4 +85,4 @@ Apps will be available at:
 
 Open http://localhost:3000 in your browser to see the full platform.
 
-## Enjoy!
+**Enjoy!**
